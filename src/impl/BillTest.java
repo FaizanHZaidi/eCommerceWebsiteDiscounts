@@ -10,11 +10,13 @@ public class BillTest {
 
     public static void main (String[]args) throws Exception{ 
        
-        // int totalBill = Integer.parseInt(args[1]);
         Customer customer;
         Bill bill;
         String userInput;
         int totalBill, groceryBill;
+        
+// --------------- USER INPUT FROM THE TERMINAL ------------------- //
+        
         Scanner reader = new Scanner(System.in);
 
         System.out.println("Enter total Bill: ");
@@ -40,7 +42,12 @@ public class BillTest {
 
         reader.close();
 
-         
+// ----------------------------------------------------------------- //
+
+        
+        /*
+        *   Check to see what type of customer it is, based on user input
+        */ 
         if (args.length>0){ 
             switch(args[0].toLowerCase()) {       
             case "employee":
@@ -59,10 +66,12 @@ public class BillTest {
 
             }
         } else {
-            customer = new Customer();
+            customer = new Customer(); // customer is neither of the above
         }
 
-         
+        /*
+        *   Creates the bill (object) and finds the total discount
+        */         
         bill = new Bill(customer, (float)totalBill, (float)groceryBill);
 
         System.out.print("Payable Bill is: ");

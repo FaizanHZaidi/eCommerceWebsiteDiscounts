@@ -3,20 +3,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /*
-*   This is our main class. It takes in two arguments: customer type
-*   and total bill. It then displays the total discount availed and
-*   the net payable bill.
+*   This is our main class. It generates 40 bill calculations, given different
+*   customer types, total initial bill and grocery bills. It logs its output into
+*   the OutFile.txt, located in the same directory.
 */
 
 public class BillTest {
 
     public static void main (String[]args){ 
        
-    		Customer customer;
+    	Customer customer;
         Bill bill;
         float totalBill, groceryBill;
-        PrintWriter out = null;
+        PrintWriter out = null; //Java object for writing into a file
         
+        //The constructor for FileWriter throws IOException, which needs to be caught
         try {
         		out = new PrintWriter(new FileWriter("OutFile.txt"));
         } catch (IOException e) {
@@ -27,11 +28,15 @@ public class BillTest {
         out.println("Customer Types: 4, Tests for each: 10, Total Tests: 40");
         out.print("------------------------------------------------------------\n");
         
+
         //------------------- TEST PARAMETERS --------------------//
         String [] customerTypes = new String []{"Employee", "Affiliate", "Regular", "none of the above"};
         float [] totalBills = new float [] {10f, 20f, 40f, 80f, 160f, 320f, 640f, 1280f, 2560f, 5120f};
         float [] groceryBills = new float []{0f, 10f, 20f, 30f, 50f, 100f, 250f, 500f, 1000f, 2000f};
 
+        /*
+        *   Loops over each customer, taking the values from the arrays initialized above
+        */
         for (int i = 0; i<customerTypes.length;i++){
             customer = getCustomer(customerTypes[i]);
             out.print("Customer Type: ");
@@ -45,7 +50,11 @@ public class BillTest {
                 *   Creates the bill (object) and finds the total discount
                 */ 
                 bill = new Bill(customer, totalBill, groceryBill);
-                displayResults(bill, totalBill, groceryBill, out);
+                
+                /*
+                *   Logs the necessary information into a txt file
+                */
+                logsResults(bill, totalBill, groceryBill, out);
 
             }
             out.println("---------------------------------------");
@@ -56,6 +65,9 @@ public class BillTest {
         
     }
 
+    /*
+    *   Returns the customer object indicated in the string s
+    */
     private static Customer getCustomer(String s){
         
         Customer c;
@@ -77,7 +89,10 @@ public class BillTest {
         return c;
     }
 
-    private static void displayResults(Bill b, float f, float g, PrintWriter out){
+    /*
+    *   Logs the output into OutFile.txt
+    */
+    private static void logsResults(Bill b, float f, float g, PrintWriter out){
 		out.print("Total Bill is: ");
 		out.println(f);
 		out.print("Grocery Bill is: ");

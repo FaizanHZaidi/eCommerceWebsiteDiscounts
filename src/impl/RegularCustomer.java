@@ -10,7 +10,6 @@ public class RegularCustomer extends Customer{
 	
 	@Override
 	public float getDiscount() {
-		// TODO Auto-generated method stub
 		
 		return RegularCustomer.discount;
 	}

@@ -12,7 +12,6 @@ public class Bill {
     private float groceries;
 	
 	public Bill(Customer customer, float bill, float groceries) {
-		// TODO Auto-generated constructor stub
 		this.customer = customer;
 		this.bill = bill;
         this.groceries = groceries;
@@ -40,6 +39,9 @@ public class Bill {
     		return discount;
     }
     
+    /*
+    *   Total discount availed by the customer
+    */
     public float totalDiscount(){
 
     		float discount = this.salesDiscount() + this.customerDiscount();

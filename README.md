@@ -8,7 +8,7 @@ After cloning the repository on your machine, go to the following directory ```e
 
 ### Understanding the Output
 
-BillTest calculates a total of 40 bills, one for each customer type. There are four user types: Employee, Affiliate, Regular (customer for more than 2 years) or none of the above. There are 10 different amounts for total bill and grocery bill (which is a part of the total bill but is mentioned separately to calculate the different discounts), which along with the customer type, are used to calculate the total payable. The OutFile.txt shows all of this: the customer type for whom the bills are being processed, the total initial bill, the grocery bill and the final payable bill along with the discount availed.  
+BillTest calculates a total of 40 bills, 10 for each customer type. There are four user types: Employee, Affiliate, Regular (customer for more than 2 years) or none of the above. There are 10 different amounts for total bill and grocery bill (which is a part of the total bill but is mentioned separately to calculate the different discounts), which along with the customer type, are used to calculate the total payable bill. The OutFile.txt shows all of this: the customer type for whom the bills are being processed, the total initial bill, the grocery bill and the final payable bill along with the discount availed.  
 
 ### Understanding the structure of the program  
 

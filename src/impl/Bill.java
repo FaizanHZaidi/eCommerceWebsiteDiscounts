@@ -23,9 +23,10 @@ public class Bill {
     *   based on their association to the store
     */
     protected float customerDiscount () {
-    		
-    		float discount = ((this.bill-this.groceries) * customer.getDiscount());
-    		
+    		float discount = 0;
+    		if (this.bill<this.groceries) {
+    			discount = ((this.bill-this.groceries) * customer.getDiscount());
+    		}
     		return discount; 
     }
     
